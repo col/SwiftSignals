@@ -13,24 +13,33 @@ class SwiftSignalsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func testCreateAConnection() {
+        let expectation = self.expectationWithDescription("asynchronous request")
+        
+        let connection = SignalRConnection(baseUrlString: "http://cs-dpb-dev.azurewebsites.net")
+        connection.connect() {
+            expectation.fulfill()
         }
+        
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+        
+        XCTAssert(connection.connectionToken != nil)
+        XCTAssert(connection.connectionId != nil)
+        
+        XCTAssertEqual(connection.keepAliveTimeout!, 20.0)
+        XCTAssertEqual(connection.disconnectTimeout!, 30.0)
+        XCTAssertEqual(connection.transportConnectTimeout!, 5.0)
+        XCTAssertEqual(connection.connectionTimeout!, 110.0)
+        XCTAssertEqual(connection.longPollDelay!, 0.0)
+        
+        XCTAssertEqual(connection.tryWebSockets!, false)
+        XCTAssertEqual(connection.protocolVersion!, "1.2")
     }
     
 }

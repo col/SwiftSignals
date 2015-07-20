@@ -10,6 +10,12 @@
 		EF54D1121B5D29790017C449 /* SwiftSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = EF54D1111B5D29790017C449 /* SwiftSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF54D1191B5D29790017C449 /* SwiftSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF54D10E1B5D29790017C449 /* SwiftSignals.framework */; };
 		EF54D11E1B5D29790017C449 /* SwiftSignalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */; };
+		EF54D1291B5D2C180017C449 /* SignalRConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1281B5D2C180017C449 /* SignalRConnection.swift */; };
+		EF54D12B1B5D4F080017C449 /* SignalRLongPollingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */; };
+		EF54D12D1B5D50B40017C449 /* SignalRNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */; };
+		EF54D12F1B5D50E60017C449 /* SignalRNSNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */; };
+		EF54D1311B5D51DE0017C449 /* SignalRBaseTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */; };
+		EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B5D53480017C449 /* SignalRTransport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		EF54D1181B5D29790017C449 /* SwiftSignalsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSignalsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSignalsTests.swift; sourceTree = "<group>"; };
 		EF54D11F1B5D29790017C449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF54D1281B5D2C180017C449 /* SignalRConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRConnection.swift; sourceTree = "<group>"; };
+		EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRLongPollingTransport.swift; sourceTree = "<group>"; };
+		EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRNetworking.swift; sourceTree = "<group>"; };
+		EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRNSNetworking.swift; sourceTree = "<group>"; };
+		EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRBaseTransport.swift; sourceTree = "<group>"; };
+		EF54D1341B5D53480017C449 /* SignalRTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRTransport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +83,11 @@
 		EF54D1101B5D29790017C449 /* SwiftSignals */ = {
 			isa = PBXGroup;
 			children = (
+				EF54D1331B5D52740017C449 /* Networking */,
+				EF54D1321B5D52620017C449 /* Transports */,
 				EF54D1111B5D29790017C449 /* SwiftSignals.h */,
 				EF54D1131B5D29790017C449 /* Info.plist */,
+				EF54D1281B5D2C180017C449 /* SignalRConnection.swift */,
 			);
 			path = SwiftSignals;
 			sourceTree = "<group>";
@@ -84,6 +99,25 @@
 				EF54D11F1B5D29790017C449 /* Info.plist */,
 			);
 			path = SwiftSignalsTests;
+			sourceTree = "<group>";
+		};
+		EF54D1321B5D52620017C449 /* Transports */ = {
+			isa = PBXGroup;
+			children = (
+				EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */,
+				EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */,
+				EF54D1341B5D53480017C449 /* SignalRTransport.swift */,
+			);
+			name = Transports;
+			sourceTree = "<group>";
+		};
+		EF54D1331B5D52740017C449 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */,
+				EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +176,7 @@
 		EF54D1051B5D29790017C449 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Colin Harris";
 				TargetAttributes = {
@@ -193,6 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF54D12D1B5D50B40017C449 /* SignalRNetworking.swift in Sources */,
+				EF54D12F1B5D50E60017C449 /* SignalRNSNetworking.swift in Sources */,
+				EF54D12B1B5D4F080017C449 /* SignalRLongPollingTransport.swift in Sources */,
+				EF54D1291B5D2C180017C449 /* SignalRConnection.swift in Sources */,
+				EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */,
+				EF54D1311B5D51DE0017C449 /* SignalRBaseTransport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +348,7 @@
 		EF54D1231B5D29790017C449 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -317,12 +359,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.colharris.SwiftSignals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		EF54D1241B5D29790017C449 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
