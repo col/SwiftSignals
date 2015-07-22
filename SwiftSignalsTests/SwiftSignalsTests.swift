@@ -22,8 +22,8 @@ class SwiftSignalsTests: XCTestCase {
     func testCreateAConnection() {
         let expectation = self.expectationWithDescription("asynchronous request")
         
-        let connection = SignalRConnection(baseUrlString: "http://cs-dpb-dev.azurewebsites.net")
-        connection.connect() {
+        let connection = SignalRConnection(baseUrlString: "http://ruw-net-01.cloudapp.net")
+        connection.start() {
             expectation.fulfill()
         }
         
@@ -38,8 +38,8 @@ class SwiftSignalsTests: XCTestCase {
         XCTAssertEqual(connection.connectionTimeout!, 110.0)
         XCTAssertEqual(connection.longPollDelay!, 0.0)
         
-        XCTAssertEqual(connection.tryWebSockets!, false)
-        XCTAssertEqual(connection.protocolVersion!, "1.2")
+        XCTAssertEqual(connection.tryWebSockets!, true)
+        XCTAssertEqual(connection.protocolVersion!, "1.5")
     }
     
 }

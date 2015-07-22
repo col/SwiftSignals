@@ -11,7 +11,7 @@ import Foundation
 public class SignalRConnection : NSObject, NSURLSessionDelegate {
     
     let url: NSURL
-    let transport: SignalRTransport
+    var transport: SignalRTransport?
     
     var connectionToken: String?
     var connectionId: String?
@@ -25,12 +25,12 @@ public class SignalRConnection : NSObject, NSURLSessionDelegate {
     
     public init(baseUrlString: String) {
         self.url = NSURL(string: baseUrlString)!
-        self.transport = SignalRLongPollingTransport(baseUrl: url, networking: SignalRNSNetworking())
         super.init()
+        self.transport = SignalRLongPollingTransport(connection: self, baseUrl: url, networking: SignalRNSNetworking())
     }
     
-    public func connect(block: () -> Void) {
-        transport.negotiate() { (response: AnyObject?) in
+    public func start(block: () -> Void) {
+        transport?.negotiate() { (response: AnyObject?) in
             guard let response = response else {
                 print("#### handle the negotiation error ####")
                 return
@@ -47,7 +47,16 @@ public class SignalRConnection : NSObject, NSURLSessionDelegate {
             self.transportConnectTimeout = response["TransportConnectTimeout"] as? Float
             
             self.tryWebSockets = response["TryWebSockets"] as? Bool
-            block()
+            
+            
+            self.transport?.connect() { (response: AnyObject?) in
+            
+                print("connect response: \(response)")
+                
+                block()
+                
+            }
+            
         }
     }
     

@@ -10,8 +10,10 @@ import Foundation
 
 protocol SignalRTransport {
     
-    init(baseUrl: NSURL, networking: SignalRNetworking)
+    init(connection: SignalRConnection, baseUrl: NSURL, networking: SignalRNetworking)
     
     func negotiate(completion: (response: AnyObject?) -> Void)
+ 
+    func connect(completion: (response: AnyObject?) -> Void)
     
 }

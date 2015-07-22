@@ -18,8 +18,15 @@ class SignalRNSNetworking : SignalRNetworking {
     }
     
     func get(url: NSURL, completion: (response: AnyObject?) -> Void) {
+        get(url, params: [String: AnyObject](), completion: completion)
+    }
+    
+    func get(url: NSURL, params: [String: AnyObject], completion: (response: AnyObject?) -> Void) {
+        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)!
+        components.queryItems = self.queryItemsForParams(params)
+        print("Sending GET request to: \(components.URL!)")
         let task = session.dataTaskWithURL(
-            url,
+            components.URL!,
             completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 do {
                     let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
@@ -30,6 +37,12 @@ class SignalRNSNetworking : SignalRNetworking {
             }
         )
         task?.resume()
+    }
+    
+    private func queryItemsForParams(params: [String : AnyObject]) -> [NSURLQueryItem] {
+        return params.map { (key, value) -> NSURLQueryItem in
+            return NSURLQueryItem(name: key, value: "\(value)")
+        }
     }
     
 }
