@@ -23,10 +23,13 @@ public class SignalRConnection : NSObject, NSURLSessionDelegate {
     var tryWebSockets: Bool?
     var protocolVersion: String?    
     
-    public init(baseUrlString: String) {
+    public init(baseUrlString: String, webSocketsEnabled: Bool = false) {
         self.url = NSURL(string: baseUrlString)!
         super.init()
-        self.transport = SignalRLongPollingTransport(connection: self, baseUrl: url, networking: SignalRNSNetworking())
+        
+//        self.transport = SignalRLongPollingTransport(connection: self, baseUrl: url, networking: SignalRNSNetworking())
+//        self.transport = SignalRWebSocketTransport(connection: self, baseUrl: url, networking: SignalRNSNetworking())
+        self.transport = SignalRServerSentEventsTransport(connection: self, baseUrl: url, networking: SignalRNSNetworking())
     }
     
     public func start(block: () -> Void) {
@@ -47,8 +50,7 @@ public class SignalRConnection : NSObject, NSURLSessionDelegate {
             self.transportConnectTimeout = response["TransportConnectTimeout"] as? Float
             
             self.tryWebSockets = response["TryWebSockets"] as? Bool
-            
-            
+                        
             self.transport?.connect() { (response: AnyObject?) in
             
                 print("connect response: \(response)")

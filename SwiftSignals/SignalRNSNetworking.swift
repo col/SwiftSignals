@@ -36,7 +36,7 @@ class SignalRNSNetworking : SignalRNetworking {
                 }
             }
         )
-        task?.resume()
+        task.resume()
     }
     
     private func queryItemsForParams(params: [String : AnyObject]) -> [NSURLQueryItem] {

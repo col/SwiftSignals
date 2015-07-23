@@ -1,0 +1,29 @@
+PODS:
+  - IKEventSource (1.0.1)
+  - Starscream (0.9.4)
+
+DEPENDENCIES:
+  - IKEventSource (from `https://github.com/col/EventSource`, branch `swift-2.0`)
+  - Starscream (from `https://github.com/col/Starscream.git`, branch `Swift-2.0`)
+
+EXTERNAL SOURCES:
+  IKEventSource:
+    :branch: swift-2.0
+    :git: https://github.com/col/EventSource
+  Starscream:
+    :branch: Swift-2.0
+    :git: https://github.com/col/Starscream.git
+
+CHECKOUT OPTIONS:
+  IKEventSource:
+    :commit: 0de4f5fefb234a43d036a95eeacb4399ca94963c
+    :git: https://github.com/col/EventSource
+  Starscream:
+    :commit: 36d4426888a106bb7930c802e6a6eab17cc48bb2
+    :git: https://github.com/col/Starscream.git
+
+SPEC CHECKSUMS:
+  IKEventSource: 5857cbc6ca06be24f12ecbc980a58007e24413b4
+  Starscream: 0ad8f312bb826c3d7610bd842d66528eee34ad81
+
+COCOAPODS: 0.37.2

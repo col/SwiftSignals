@@ -13,11 +13,13 @@ class SignalRBaseTransport : SignalRTransport {
     let connection: SignalRConnection
     let baseUrl: NSURL
     let networking: SignalRNetworking
+    var transport: String
     
     required init(connection: SignalRConnection, baseUrl: NSURL, networking: SignalRNetworking) {
         self.connection = connection
         self.baseUrl = baseUrl
         self.networking = networking
+        self.transport = "longPolling"
     }
     
     func negotiate(completion: (response: AnyObject?) -> Void ) {
@@ -30,15 +32,17 @@ class SignalRBaseTransport : SignalRTransport {
     
     func connect(completion: (response: AnyObject?) -> Void) {
         let url = baseUrl.URLByAppendingPathComponent("/signalr/connect")
-        let params = [
-            "connectionToken" : connection.connectionToken!,
-            "transport" : "longPolling",
-            "clientProtocol" : "1.5"
-//            , "connectionData" : [ ["name" : "dpbhub"]
-        ]
-        networking.get(url, params: params) { (response) -> Void in            
+        networking.get(url, params: connectParams()) { (response) -> Void in
             completion(response: response)
         }
     }
     
+    func connectParams() -> [String : AnyObject] {
+        return [
+            "connectionToken" : connection.connectionToken!,
+            "transport" : transport,
+            "clientProtocol" : "1.5"
+            //            , "connectionData" : [ ["name" : "dpbhub"]
+        ]
+    }
 }
