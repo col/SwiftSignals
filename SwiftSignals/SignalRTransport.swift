@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SignalRTransport {
+public protocol SignalRTransport {
     
     init(connection: SignalRConnection, baseUrl: NSURL, networking: SignalRNetworking)
     

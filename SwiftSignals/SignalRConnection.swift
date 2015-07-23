@@ -10,8 +10,8 @@ import Foundation
 
 public class SignalRConnection : NSObject, NSURLSessionDelegate {
     
-    let url: NSURL
-    var transport: SignalRTransport?
+    public let url: NSURL
+    public var transport: SignalRTransport?
     
     var connectionToken: String?
     var connectionId: String?

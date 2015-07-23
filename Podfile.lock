@@ -1,29 +1,47 @@
 PODS:
   - IKEventSource (1.0.1)
+  - Nimble (2.0.0-rc.1)
+  - Quick (0.5.0)
   - Starscream (0.9.4)
 
 DEPENDENCIES:
   - IKEventSource (from `https://github.com/col/EventSource`, branch `swift-2.0`)
-  - Starscream (from `https://github.com/col/Starscream.git`, branch `Swift-2.0`)
+  - Nimble (from `https://github.com/Quick/Nimble`, branch `swift-2.0`)
+  - Quick (from `https://github.com/Quick/Quick`, branch `swift-2.0`)
+  - Starscream (from `https://github.com/col/Starscream`, branch `Swift-2.0`)
 
 EXTERNAL SOURCES:
   IKEventSource:
     :branch: swift-2.0
     :git: https://github.com/col/EventSource
+  Nimble:
+    :branch: swift-2.0
+    :git: https://github.com/Quick/Nimble
+  Quick:
+    :branch: swift-2.0
+    :git: https://github.com/Quick/Quick
   Starscream:
     :branch: Swift-2.0
-    :git: https://github.com/col/Starscream.git
+    :git: https://github.com/col/Starscream
 
 CHECKOUT OPTIONS:
   IKEventSource:
-    :commit: 0de4f5fefb234a43d036a95eeacb4399ca94963c
+    :commit: 1ebc270487105f984f0b5e4186f8cfd1bab35840
     :git: https://github.com/col/EventSource
+  Nimble:
+    :commit: a804949542eb2f299b823ffb36936aec54fe0db6
+    :git: https://github.com/Quick/Nimble
+  Quick:
+    :commit: e3c802be6c55710b39dba73caab9f234932c2ed7
+    :git: https://github.com/Quick/Quick
   Starscream:
     :commit: 36d4426888a106bb7930c802e6a6eab17cc48bb2
-    :git: https://github.com/col/Starscream.git
+    :git: https://github.com/col/Starscream
 
 SPEC CHECKSUMS:
   IKEventSource: 5857cbc6ca06be24f12ecbc980a58007e24413b4
+  Nimble: 48a21b576243696b16fff57f4783aadc18fda8bb
+  Quick: 45494d91b43b34346217879491853ee3ca073f5d
   Starscream: 0ad8f312bb826c3d7610bd842d66528eee34ad81
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.0

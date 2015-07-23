@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SignalRNetworking {
+public protocol SignalRNetworking {
     
     func get(url: NSURL, completion: (response: AnyObject?) -> Void)
     

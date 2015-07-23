@@ -12,6 +12,7 @@
 		9AECEBDB2189888068914D24 /* Pods_SwiftSignalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F31A295892A096983CF0C9 /* Pods_SwiftSignalsTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF51060D1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */; };
 		EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */; };
+		EF5106111B6135F4003CBDA0 /* SignalRConnectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */; };
 		EF54D1121B5D29790017C449 /* SwiftSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = EF54D1111B5D29790017C449 /* SwiftSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF54D1191B5D29790017C449 /* SwiftSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF54D10E1B5D29790017C449 /* SwiftSignals.framework */; };
 		EF54D11E1B5D29790017C449 /* SwiftSignalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */; };
@@ -23,6 +24,7 @@
 		EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B5D53480017C449 /* SignalRTransport.swift */; };
 		EF54D1371B5FD31F0017C449 /* SignalRWebSocketTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */; };
 		EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */; };
+		EFBDB6711B614A110003940E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6701B614A110003940E /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		C539D4CEACC527EBFFC41087 /* Pods-SwiftSignalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSignalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftSignalsTests/Pods-SwiftSignalsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRSeverSentEventsTransport.swift; sourceTree = "<group>"; };
 		EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLComponentsTests.swift; sourceTree = "<group>"; };
+		EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRConnectionSpec.swift; sourceTree = "<group>"; };
 		EF54D10E1B5D29790017C449 /* SwiftSignals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSignals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF54D1111B5D29790017C449 /* SwiftSignals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSignals.h; sourceTree = "<group>"; };
 		EF54D1131B5D29790017C449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		EF54D1341B5D53480017C449 /* SignalRTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRTransport.swift; sourceTree = "<group>"; };
 		EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRWebSocketTransport.swift; sourceTree = "<group>"; };
 		EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+SwiftSignals.swift"; sourceTree = "<group>"; };
+		EFBDB6701B614A110003940E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F787CE6F9F69C6395BF83ECF /* Pods-SwiftSignals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSignals.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftSignals/Pods-SwiftSignals.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 				EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */,
 				EF54D11F1B5D29790017C449 /* Info.plist */,
 				EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */,
+				EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */,
 			);
 			path = SwiftSignalsTests;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				EF54D1341B5D53480017C449 /* SignalRTransport.swift */,
 				EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */,
 				EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */,
+				EFBDB6701B614A110003940E /* Event.swift */,
 			);
 			name = Transports;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				EF51060D1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift in Sources */,
 				EF54D12D1B5D50B40017C449 /* SignalRNetworking.swift in Sources */,
 				EF54D12F1B5D50E60017C449 /* SignalRNSNetworking.swift in Sources */,
+				EFBDB6711B614A110003940E /* Event.swift in Sources */,
 				EF54D12B1B5D4F080017C449 /* SignalRLongPollingTransport.swift in Sources */,
 				EF54D1291B5D2C180017C449 /* SignalRConnection.swift in Sources */,
 				EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */,
@@ -384,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5106111B6135F4003CBDA0 /* SignalRConnectionSpec.swift in Sources */,
 				EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */,
 				EF54D11E1B5D29790017C449 /* SwiftSignalsTests.swift in Sources */,
 			);
