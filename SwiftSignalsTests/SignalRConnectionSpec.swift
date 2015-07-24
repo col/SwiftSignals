@@ -35,6 +35,19 @@ class SignalRConnectionSpec: QuickSpec {
             
         }
         
+        describe("#invoke") {
+            
+            it("should send a request") {
+                waitUntil(timeout: 10) { done in
+                    let connection = SignalRConnection(baseUrlString: "http://ruw-net-01.cloudapp.net")
+                    connection.start() {
+                        connection.invoke("SubscribeCustomer", args: [ "APAC-CUS-1-SG" ])
+                    }
+                }
+            }
+            
+        }
+        
         
         
     }

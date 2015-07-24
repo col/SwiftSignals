@@ -17,12 +17,6 @@ class SignalRServerSentEventsTransport : SignalRBaseTransport {
         super.init(connection: connection, baseUrl: baseUrl, networking: networking)
         self.transport = "serverSentEvents"
     }
-
-    func connectURL() -> String {
-        let customCharSet = NSMutableCharacterSet.alphanumericCharacterSet()
-        let encodedToken = connection.connectionToken!.stringByAddingPercentEncodingWithAllowedCharacters(customCharSet)
-        return "\(baseUrl.absoluteString)/signalr/connect?connectionToken=\(encodedToken!)&transport=\(transport)&clientProtocol=1.5"
-    }
     
     override func connect(completion: (response: AnyObject?) -> Void) {
         
@@ -33,8 +27,8 @@ class SignalRServerSentEventsTransport : SignalRBaseTransport {
 //        components.setQueryParams(connectParams())
 //        print("SSE URL: \(components.string!)")
 
-        print("SSE URL: \(connectURL())")
-        eventSource = EventSource(url: connectURL(), headers: [String: String]())
+        print("SSE URL: \(connectUrl())")
+        eventSource = EventSource(url: connectUrl().absoluteString, headers: [String: String]())
         
         eventSource?.onOpen {
             print("onOpen")
@@ -48,7 +42,9 @@ class SignalRServerSentEventsTransport : SignalRBaseTransport {
             print("onMessage id: \(id) event: \(event) data: \(data)")
             
             if data == "initialized" {
-                completion(response: nil)
+                self.start() {
+                    completion(response: nil)
+                }
                 return
             }
             

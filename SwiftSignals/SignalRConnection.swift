@@ -62,4 +62,8 @@ public class SignalRConnection : NSObject, NSURLSessionDelegate {
         }
     }
     
+    public func invoke(method: String, args: [AnyObject]) {
+        transport?.invoke(method, args: args)
+    }
+    
 }

@@ -23,26 +23,76 @@ class SignalRBaseTransport : SignalRTransport {
     }
     
     func negotiate(completion: (response: AnyObject?) -> Void ) {
-        let url = baseUrl.URLByAppendingPathComponent("/signalr/negotiate")
-        let params = [ "clientProtocol" : "1.5" ]
-        networking.get(url, params: params) { (response) in
+        networking.get(negotiateUrl()) { (response) in
             completion(response: response)
         }
     }
     
     func connect(completion: (response: AnyObject?) -> Void) {
-        let url = baseUrl.URLByAppendingPathComponent("/signalr/connect")
-        networking.get(url, params: connectParams()) { (response) -> Void in
-            completion(response: response)
+        networking.get(connectUrl()) { (response) -> Void in
+            self.start() {
+                completion(response: response)
+            }
         }
+    }
+    
+    func start(completion: () -> Void) {
+        networking.get(startUrl()) { (response) -> Void in
+            print("Start Response!!! \(response)")
+            completion()
+        }
+    }
+    
+    func invoke(method: String, args: [AnyObject]) {
+        let event = Event(hubName: "dpbhub", methodName: method, arguments: args, index: 0)
+        networking.post(sendUrl(), body: event.toData()) { (response) -> Void in
+            print("Invoke Method Response!!! \(response)")
+        }
+    }
+
+    func negotiateUrl() -> NSURL {
+        return NSURL(string: "\(baseUrl.absoluteString)/signalr/negotiate?\(negotiateQueryString())")!
+    }
+
+    func connectUrl() -> NSURL {
+        return NSURL(string: "\(baseUrl.absoluteString)/signalr/connect?\(connectQueryString())")!
+    }
+    
+    func startUrl() -> NSURL {
+        return NSURL(string: "\(baseUrl.absoluteString)/signalr/start?\(connectQueryString())")!
+    }
+    
+    func sendUrl() -> NSURL {
+        return NSURL(string: "\(baseUrl.absoluteString)/signalr/send?\(sendQueryString())")!
     }
     
     func connectParams() -> [String : AnyObject] {
         return [
             "connectionToken" : connection.connectionToken!,
             "transport" : transport,
-            "clientProtocol" : "1.5"
-            //            , "connectionData" : [ ["name" : "dpbhub"]
+            "clientProtocol" : "1.5",
+            "connectionData" : [ ["name" : "dpbhub"] ]
         ]
     }
+
+    func negotiateQueryString() -> String {
+        let connectionData = encodeQueryValue("[{\"name\":\"dpbhub\"}]")
+        return "clientProtocol=1.5&connectionData=\(connectionData)"
+    }
+    
+    func connectQueryString() -> String {
+        let token = encodeQueryValue(connection.connectionToken!)
+        let connectionData = encodeQueryValue("[{\"name\":\"dpbhub\"}]")
+        return "transport=\(transport)&clientProtocol=1.5&connectionToken=\(token)&connectionData=\(connectionData)"
+    }
+
+    func sendQueryString() -> String {
+        return connectQueryString()
+    }
+    
+    func encodeQueryValue(value: String) -> String {
+        let customCharSet = NSMutableCharacterSet.alphanumericCharacterSet()
+        return value.stringByAddingPercentEncodingWithAllowedCharacters(customCharSet)!
+    }
+    
 }

@@ -13,9 +13,9 @@ public class Event {
     public let hubName: String
     public let methodName: String
     public let arguments: [AnyObject]
-    public let index: Int
+    public let index: Int?
     
-    init(hubName: String, methodName: String, arguments: [AnyObject], index: Int) {
+    init(hubName: String, methodName: String, arguments: [AnyObject], index: Int?) {
         self.hubName = hubName
         self.methodName = methodName
         self.arguments = arguments
@@ -25,12 +25,20 @@ public class Event {
     class func eventWithData(data: [String: AnyObject]) -> Event? {
         if let hubName = data["H"] as? String,
             methodName = data["M"] as? String,
-            arguments = data["A"] as? [AnyObject],
-            index = data["I"] as? Int
+            arguments = data["A"] as? [AnyObject]
         {
-            return Event(hubName: hubName, methodName: methodName, arguments: arguments, index: index)
+            return Event(hubName: hubName, methodName: methodName, arguments: arguments, index: data["I"] as? Int)
         }
         return nil
+    }
+    
+    public func toData() -> [String: AnyObject] {
+        return [
+            "H" : hubName,
+            "M" : methodName,
+            "A" : arguments,
+            "I" : index!
+        ]
     }
     
 }

@@ -16,4 +16,5 @@ public protocol SignalRTransport {
  
     func connect(completion: (response: AnyObject?) -> Void)
     
+    func invoke(method: String, args: [AnyObject])
 }

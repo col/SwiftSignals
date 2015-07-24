@@ -19,7 +19,7 @@ class SwiftSignalsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testCreateAConnection() {
+    func xtestCreateAConnection() {
         let expectation = self.expectationWithDescription("asynchronous request")
         
         let connection = SignalRConnection(baseUrlString: "http://ruw-net-01.cloudapp.net", webSocketsEnabled: true)

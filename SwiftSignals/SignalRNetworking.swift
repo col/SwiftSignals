@@ -12,6 +12,8 @@ public protocol SignalRNetworking {
     
     func get(url: NSURL, completion: (response: AnyObject?) -> Void)
     
-    func get(url: NSURL, params: [String: AnyObject], completion: (response: AnyObject?) -> Void)
+    func get(url: NSURL, params: [String: AnyObject]?, completion: (response: AnyObject?) -> Void)
+
+    func post(url: NSURL, body: [String: AnyObject]?, completion: (response: AnyObject?) -> Void)
     
 }
