@@ -1,5 +1,5 @@
 //
-//  SignalRWebSocketTransport.swift
+//  WebSocketTransport.swift
 //  SwiftSignals
 //
 //  Created by Colin Harris on 22/7/15.
@@ -9,20 +9,19 @@
 import Foundation
 import Starscream
 
-class SignalRWebSocketTransport : SignalRBaseTransport, WebSocketDelegate {
+class WebSocketTransport: BaseTransport, WebSocketDelegate {
     
     var socket: WebSocket?
-    var connectCallback: ((response: AnyObject?) -> Void)?
     
-    required init(connection: SignalRConnection, baseUrl: NSURL, networking: SignalRNetworking) {
-        super.init(connection: connection, baseUrl: baseUrl, networking: networking)
-        self.transport = "webSockets"
+    override var name: String {
+        get {
+            return "webSockets"
+        }
     }
     
-    override func connect(completion: (response: AnyObject?) -> Void) {
-//        completion(response: nil)
-        self.connectCallback = completion
-        let components = NSURLComponents(URL: baseUrl, resolvingAgainstBaseURL: false)!
+    override func connect() {
+        // TODO: fix this to append the query params correctly.
+        let components = NSURLComponents(URL: connection.baseUrl, resolvingAgainstBaseURL: false)!
         components.scheme = "ws"
         components.path = "/signalr/connect"
         components.setQueryParams(connectParams())
@@ -35,11 +34,12 @@ class SignalRWebSocketTransport : SignalRBaseTransport, WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocket) {
         print("websocketDidConnect")
-        connectCallback!(response: nil);
+        start()
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
         print("websocketDidDisconnect")
+        // TODO: initiate a reconnect here.
     }
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {

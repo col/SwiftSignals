@@ -1,5 +1,5 @@
 //
-//  SignalRNetworking.swift
+//  Networking.swift
 //  SwiftSignals
 //
 //  Created by Colin Harris on 20/7/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SignalRNetworking {
+public protocol Networking {
     
     func get(url: NSURL, completion: (response: AnyObject?) -> Void)
     

@@ -1,5 +1,5 @@
 //
-//  SignalRSeverSentEventsTransport.swift
+//  SeverSentEventsTransport.swift
 //  SwiftSignals
 //
 //  Created by Colin Harris on 23/7/15.
@@ -9,25 +9,18 @@
 import Foundation
 import IKEventSource
 
-class SignalRServerSentEventsTransport : SignalRBaseTransport {
+public class ServerSentEventsTransport: BaseTransport {
     
     var eventSource: EventSource?
     
-    required init(connection: SignalRConnection, baseUrl: NSURL, networking: SignalRNetworking) {
-        super.init(connection: connection, baseUrl: baseUrl, networking: networking)
-        self.transport = "serverSentEvents"
+    override public var name: String {
+        get {
+            return "serverSentEvents"
+        }
     }
     
-    override func connect(completion: (response: AnyObject?) -> Void) {
-        
-        // Can't get NSURLComponents to encode the token correctly.
-        // see: http://stackoverflow.com/questions/31577188/how-to-encode-into-2b-with-nsurlcomponents
-//        let components = NSURLComponents(URL: baseUrl, resolvingAgainstBaseURL: false)!
-//        components.path = "/signalr/connect"
-//        components.setQueryParams(connectParams())
-//        print("SSE URL: \(components.string!)")
-
-        print("SSE URL: \(connectUrl())")
+    override public func connect() {
+        print("Connecting to: \(connectUrl())")
         eventSource = EventSource(url: connectUrl().absoluteString, headers: [String: String]())
         
         eventSource?.onOpen {
@@ -36,27 +29,20 @@ class SignalRServerSentEventsTransport : SignalRBaseTransport {
         
         eventSource?.onError { (error) in
             print("onError \(error)")
+            self.connection.delegate?.connectionError(self.connection, error: error)
         }
         
         eventSource?.onMessage { (id, event, data) in
             print("onMessage id: \(id) event: \(event) data: \(data)")
             
             if data == "initialized" {
-                self.start() {
-                    completion(response: nil)
-                }
+                self.start()
                 return
             }
             
             let events = self.parseResponse(data)
             print("Received Events = \(events)")
         }
-        
-        eventSource?.addEventListener("event-name") { (id, event, data) in
-            print("onEvent")
-        }
-        
-//        eventSource?.close()
         
     }
     

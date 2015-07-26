@@ -1,5 +1,5 @@
 //
-//  SignalRNSNetworking.swift
+//  NSNetworking.swift
 //  SwiftSignals
 //
 //  Created by Colin Harris on 20/7/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SignalRNSNetworking : SignalRNetworking {
+class NSNetworking: Networking {
     
     let session: NSURLSession
     

@@ -10,21 +10,32 @@
 		2289F780EC25334D59FB71B3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917CDC9E8CA27553B80C99FD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7D4A70BA9EB9615E7798707A /* Pods_SwiftSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FD0260B84FF4CC7E6282B6 /* Pods_SwiftSignals.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9AECEBDB2189888068914D24 /* Pods_SwiftSignalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F31A295892A096983CF0C9 /* Pods_SwiftSignalsTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EF51060D1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */; };
+		EF51060D1B60739D003CBDA0 /* SeverSentEventsTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51060C1B60739D003CBDA0 /* SeverSentEventsTransport.swift */; };
 		EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */; };
-		EF5106111B6135F4003CBDA0 /* SignalRConnectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */; };
+		EF5106111B6135F4003CBDA0 /* ConnectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5106101B6135F4003CBDA0 /* ConnectionSpec.swift */; };
 		EF54D1121B5D29790017C449 /* SwiftSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = EF54D1111B5D29790017C449 /* SwiftSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF54D1191B5D29790017C449 /* SwiftSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF54D10E1B5D29790017C449 /* SwiftSignals.framework */; };
-		EF54D11E1B5D29790017C449 /* SwiftSignalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */; };
-		EF54D1291B5D2C180017C449 /* SignalRConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1281B5D2C180017C449 /* SignalRConnection.swift */; };
-		EF54D12B1B5D4F080017C449 /* SignalRLongPollingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */; };
-		EF54D12D1B5D50B40017C449 /* SignalRNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */; };
-		EF54D12F1B5D50E60017C449 /* SignalRNSNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */; };
-		EF54D1311B5D51DE0017C449 /* SignalRBaseTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */; };
-		EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B5D53480017C449 /* SignalRTransport.swift */; };
-		EF54D1371B5FD31F0017C449 /* SignalRWebSocketTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */; };
+		EF54D1291B5D2C180017C449 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1281B5D2C180017C449 /* Connection.swift */; };
+		EF54D12B1B5D4F080017C449 /* LongPollingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12A1B5D4F080017C449 /* LongPollingTransport.swift */; };
+		EF54D12D1B5D50B40017C449 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12C1B5D50B40017C449 /* Networking.swift */; };
+		EF54D12F1B5D50E60017C449 /* NSNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D12E1B5D50E60017C449 /* NSNetworking.swift */; };
+		EF54D1311B5D51DE0017C449 /* BaseTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1301B5D51DE0017C449 /* BaseTransport.swift */; };
+		EF54D1351B5D53480017C449 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1341B5D53480017C449 /* Transport.swift */; };
+		EF54D1371B5FD31F0017C449 /* WebSocketTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54D1361B5FD31F0017C449 /* WebSocketTransport.swift */; };
+		EF9593331B63A8170091B569 /* MockConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593321B63A8170091B569 /* MockConnectionDelegate.swift */; };
+		EF9593351B63A8330091B569 /* MockTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593341B63A8330091B569 /* MockTransport.swift */; };
+		EF9593381B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593371B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift */; };
+		EF95933A1B63F6150091B569 /* WebSocketTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593391B63F6150091B569 /* WebSocketTransportSpec.swift */; };
+		EF95933C1B63F6250091B569 /* LongPollingTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95933B1B63F6250091B569 /* LongPollingTransportSpec.swift */; };
+		EF95933E1B63F6310091B569 /* AutoTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95933D1B63F6310091B569 /* AutoTransportSpec.swift */; };
+		EF9593401B63F8DA0091B569 /* TransportDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95933F1B63F8DA0091B569 /* TransportDelegate.swift */; };
+		EF9593421B6402FF0091B569 /* MockConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593411B6402FF0091B569 /* MockConnection.swift */; };
+		EF9593441B6403100091B569 /* MockTransportDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593431B6403100091B569 /* MockTransportDelegate.swift */; };
 		EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */; };
 		EFBDB6711B614A110003940E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6701B614A110003940E /* Event.swift */; };
+		EFBDB6731B61D2EC0003940E /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */; };
+		EFBDB6751B637B030003940E /* ConnectionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6741B637B030003940E /* ConnectionOptions.swift */; };
+		EFBDB6781B637DC90003940E /* AutoTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6771B637DC90003940E /* AutoTransport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,24 +55,35 @@
 		917CDC9E8CA27553B80C99FD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0032056E44405280A8084FE /* Pods-SwiftSignals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSignals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftSignals/Pods-SwiftSignals.debug.xcconfig"; sourceTree = "<group>"; };
 		C539D4CEACC527EBFFC41087 /* Pods-SwiftSignalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSignalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftSignalsTests/Pods-SwiftSignalsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRSeverSentEventsTransport.swift; sourceTree = "<group>"; };
+		EF51060C1B60739D003CBDA0 /* SeverSentEventsTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeverSentEventsTransport.swift; sourceTree = "<group>"; };
 		EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLComponentsTests.swift; sourceTree = "<group>"; };
-		EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRConnectionSpec.swift; sourceTree = "<group>"; };
+		EF5106101B6135F4003CBDA0 /* ConnectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionSpec.swift; sourceTree = "<group>"; };
 		EF54D10E1B5D29790017C449 /* SwiftSignals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSignals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF54D1111B5D29790017C449 /* SwiftSignals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSignals.h; sourceTree = "<group>"; };
 		EF54D1131B5D29790017C449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF54D1181B5D29790017C449 /* SwiftSignalsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSignalsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSignalsTests.swift; sourceTree = "<group>"; };
 		EF54D11F1B5D29790017C449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF54D1281B5D2C180017C449 /* SignalRConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRConnection.swift; sourceTree = "<group>"; };
-		EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRLongPollingTransport.swift; sourceTree = "<group>"; };
-		EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRNetworking.swift; sourceTree = "<group>"; };
-		EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRNSNetworking.swift; sourceTree = "<group>"; };
-		EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRBaseTransport.swift; sourceTree = "<group>"; };
-		EF54D1341B5D53480017C449 /* SignalRTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRTransport.swift; sourceTree = "<group>"; };
-		EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalRWebSocketTransport.swift; sourceTree = "<group>"; };
+		EF54D1281B5D2C180017C449 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		EF54D12A1B5D4F080017C449 /* LongPollingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPollingTransport.swift; sourceTree = "<group>"; };
+		EF54D12C1B5D50B40017C449 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		EF54D12E1B5D50E60017C449 /* NSNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNetworking.swift; sourceTree = "<group>"; };
+		EF54D1301B5D51DE0017C449 /* BaseTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransport.swift; sourceTree = "<group>"; };
+		EF54D1341B5D53480017C449 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		EF54D1361B5FD31F0017C449 /* WebSocketTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketTransport.swift; sourceTree = "<group>"; };
+		EF9593321B63A8170091B569 /* MockConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConnectionDelegate.swift; sourceTree = "<group>"; };
+		EF9593341B63A8330091B569 /* MockTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTransport.swift; sourceTree = "<group>"; };
+		EF9593371B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSentEventsTransportSpec.swift; sourceTree = "<group>"; };
+		EF9593391B63F6150091B569 /* WebSocketTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketTransportSpec.swift; sourceTree = "<group>"; };
+		EF95933B1B63F6250091B569 /* LongPollingTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPollingTransportSpec.swift; sourceTree = "<group>"; };
+		EF95933D1B63F6310091B569 /* AutoTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTransportSpec.swift; sourceTree = "<group>"; };
+		EF95933F1B63F8DA0091B569 /* TransportDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportDelegate.swift; sourceTree = "<group>"; };
+		EF9593411B6402FF0091B569 /* MockConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConnection.swift; sourceTree = "<group>"; };
+		EF9593431B6403100091B569 /* MockTransportDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTransportDelegate.swift; sourceTree = "<group>"; };
 		EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+SwiftSignals.swift"; sourceTree = "<group>"; };
 		EFBDB6701B614A110003940E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
+		EFBDB6741B637B030003940E /* ConnectionOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionOptions.swift; sourceTree = "<group>"; };
+		EFBDB6771B637DC90003940E /* AutoTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTransport.swift; sourceTree = "<group>"; };
 		F787CE6F9F69C6395BF83ECF /* Pods-SwiftSignals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSignals.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftSignals/Pods-SwiftSignals.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +147,10 @@
 				EF54D1321B5D52620017C449 /* Transports */,
 				EF54D1111B5D29790017C449 /* SwiftSignals.h */,
 				EF54D1131B5D29790017C449 /* Info.plist */,
-				EF54D1281B5D2C180017C449 /* SignalRConnection.swift */,
+				EF54D1281B5D2C180017C449 /* Connection.swift */,
+				EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */,
+				EFBDB6741B637B030003940E /* ConnectionOptions.swift */,
+				EFBDB6701B614A110003940E /* Event.swift */,
 			);
 			path = SwiftSignals;
 			sourceTree = "<group>";
@@ -133,10 +158,11 @@
 		EF54D11C1B5D29790017C449 /* SwiftSignalsTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF54D11D1B5D29790017C449 /* SwiftSignalsTests.swift */,
+				EF9593361B63F5E60091B569 /* Transports */,
+				EF9593311B63A8010091B569 /* Helpers */,
+				EFBDB6791B63834B0003940E /* Extensions */,
+				EF5106101B6135F4003CBDA0 /* ConnectionSpec.swift */,
 				EF54D11F1B5D29790017C449 /* Info.plist */,
-				EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */,
-				EF5106101B6135F4003CBDA0 /* SignalRConnectionSpec.swift */,
 			);
 			path = SwiftSignalsTests;
 			sourceTree = "<group>";
@@ -144,12 +170,13 @@
 		EF54D1321B5D52620017C449 /* Transports */ = {
 			isa = PBXGroup;
 			children = (
-				EF54D12A1B5D4F080017C449 /* SignalRLongPollingTransport.swift */,
-				EF54D1301B5D51DE0017C449 /* SignalRBaseTransport.swift */,
-				EF54D1341B5D53480017C449 /* SignalRTransport.swift */,
-				EF54D1361B5FD31F0017C449 /* SignalRWebSocketTransport.swift */,
-				EF51060C1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift */,
-				EFBDB6701B614A110003940E /* Event.swift */,
+				EF54D12A1B5D4F080017C449 /* LongPollingTransport.swift */,
+				EF54D1301B5D51DE0017C449 /* BaseTransport.swift */,
+				EF54D1341B5D53480017C449 /* Transport.swift */,
+				EF54D1361B5FD31F0017C449 /* WebSocketTransport.swift */,
+				EF51060C1B60739D003CBDA0 /* SeverSentEventsTransport.swift */,
+				EFBDB6771B637DC90003940E /* AutoTransport.swift */,
+				EF95933F1B63F8DA0091B569 /* TransportDelegate.swift */,
 			);
 			name = Transports;
 			sourceTree = "<group>";
@@ -157,16 +184,46 @@
 		EF54D1331B5D52740017C449 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				EF54D12C1B5D50B40017C449 /* SignalRNetworking.swift */,
-				EF54D12E1B5D50E60017C449 /* SignalRNSNetworking.swift */,
+				EF54D12C1B5D50B40017C449 /* Networking.swift */,
+				EF54D12E1B5D50E60017C449 /* NSNetworking.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		EF9593311B63A8010091B569 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF9593321B63A8170091B569 /* MockConnectionDelegate.swift */,
+				EF9593341B63A8330091B569 /* MockTransport.swift */,
+				EF9593411B6402FF0091B569 /* MockConnection.swift */,
+				EF9593431B6403100091B569 /* MockTransportDelegate.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		EF9593361B63F5E60091B569 /* Transports */ = {
+			isa = PBXGroup;
+			children = (
+				EF9593371B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift */,
+				EF9593391B63F6150091B569 /* WebSocketTransportSpec.swift */,
+				EF95933B1B63F6250091B569 /* LongPollingTransportSpec.swift */,
+				EF95933D1B63F6310091B569 /* AutoTransportSpec.swift */,
+			);
+			name = Transports;
 			sourceTree = "<group>";
 		};
 		EFA0AB4E1B5FDAC400479E59 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		EFBDB6791B63834B0003940E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -374,16 +431,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9593401B63F8DA0091B569 /* TransportDelegate.swift in Sources */,
 				EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */,
-				EF51060D1B60739D003CBDA0 /* SignalRSeverSentEventsTransport.swift in Sources */,
-				EF54D12D1B5D50B40017C449 /* SignalRNetworking.swift in Sources */,
-				EF54D12F1B5D50E60017C449 /* SignalRNSNetworking.swift in Sources */,
+				EF51060D1B60739D003CBDA0 /* SeverSentEventsTransport.swift in Sources */,
+				EF54D12D1B5D50B40017C449 /* Networking.swift in Sources */,
+				EF54D12F1B5D50E60017C449 /* NSNetworking.swift in Sources */,
+				EFBDB6781B637DC90003940E /* AutoTransport.swift in Sources */,
 				EFBDB6711B614A110003940E /* Event.swift in Sources */,
-				EF54D12B1B5D4F080017C449 /* SignalRLongPollingTransport.swift in Sources */,
-				EF54D1291B5D2C180017C449 /* SignalRConnection.swift in Sources */,
-				EF54D1351B5D53480017C449 /* SignalRTransport.swift in Sources */,
-				EF54D1371B5FD31F0017C449 /* SignalRWebSocketTransport.swift in Sources */,
-				EF54D1311B5D51DE0017C449 /* SignalRBaseTransport.swift in Sources */,
+				EF54D12B1B5D4F080017C449 /* LongPollingTransport.swift in Sources */,
+				EF54D1291B5D2C180017C449 /* Connection.swift in Sources */,
+				EF54D1351B5D53480017C449 /* Transport.swift in Sources */,
+				EF54D1371B5FD31F0017C449 /* WebSocketTransport.swift in Sources */,
+				EF54D1311B5D51DE0017C449 /* BaseTransport.swift in Sources */,
+				EFBDB6751B637B030003940E /* ConnectionOptions.swift in Sources */,
+				EFBDB6731B61D2EC0003940E /* ConnectionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,9 +452,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5106111B6135F4003CBDA0 /* SignalRConnectionSpec.swift in Sources */,
+				EF9593421B6402FF0091B569 /* MockConnection.swift in Sources */,
+				EF95933A1B63F6150091B569 /* WebSocketTransportSpec.swift in Sources */,
+				EF9593441B6403100091B569 /* MockTransportDelegate.swift in Sources */,
+				EF5106111B6135F4003CBDA0 /* ConnectionSpec.swift in Sources */,
+				EF9593351B63A8330091B569 /* MockTransport.swift in Sources */,
+				EF95933E1B63F6310091B569 /* AutoTransportSpec.swift in Sources */,
+				EF95933C1B63F6250091B569 /* LongPollingTransportSpec.swift in Sources */,
+				EF9593331B63A8170091B569 /* MockConnectionDelegate.swift in Sources */,
+				EF9593381B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift in Sources */,
 				EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */,
-				EF54D11E1B5D29790017C449 /* SwiftSignalsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
