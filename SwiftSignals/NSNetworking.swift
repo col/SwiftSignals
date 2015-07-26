@@ -17,29 +17,33 @@ class NSNetworking: Networking {
         self.session = NSURLSession(configuration: sessionConfig)
     }
     
-    func get(url: NSURL, completion: (response: AnyObject?) -> Void) {
-        get(url, params: nil, completion: completion)
+    func get(url: NSURL, success: SuccessHandler, failure: FailureHandler) {
+        get(url, params: nil, success: success, failure: failure)
     }
     
-    func get(url: NSURL, params: [String: AnyObject]?, completion: (response: AnyObject?) -> Void) {
-        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)!
-//        components.queryItems = self.queryItemsForParams(params)
-        print("Sending GET request to: \(components.URL!)")
+    func get(url: NSURL, params: [String: AnyObject]?, success: SuccessHandler, failure: FailureHandler) {
+        print("Sending GET request to: \(url)")
         let task = session.dataTaskWithURL(
-            components.URL!,
+            url,
             completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                if let error = error {
+                    failure(error: error)
+                    return
+                }
                 do {
                     let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                    completion(response: jsonObject)
+                    success(response: jsonObject)
+                } catch let parseError as NSError {
+                    failure(error: parseError)
                 } catch {
-                    completion(response: nil)
+                    failure(error: nil)
                 }
             }
         )
         task.resume()
     }
     
-    func post(url: NSURL, body: [String: AnyObject]?, completion: (response: AnyObject?) -> Void) {
+    func post(url: NSURL, body: [String: AnyObject]?, success: SuccessHandler, failure: FailureHandler) {
         print("Sending POST request to: \(url)")
         
         let request = NSMutableURLRequest(URL: url)
@@ -49,12 +53,20 @@ class NSNetworking: Networking {
         }
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
-        let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+        let task = session.dataTaskWithRequest(
+            request,
+            completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                if let error = error {
+                    failure(error: error)
+                    return
+                }
                 do {
                     let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                    completion(response: jsonObject)
+                    success(response: jsonObject)
+                } catch let parseError as NSError {
+                    failure(error: parseError)
                 } catch {
-                    completion(response: nil)
+                    failure(error: nil)
                 }
             }
         )

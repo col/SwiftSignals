@@ -8,12 +8,15 @@
 
 import Foundation
 
+public typealias SuccessHandler = (response: AnyObject?) -> Void
+public typealias FailureHandler = (error: NSError?) -> Void
+
 public protocol Networking {
     
-    func get(url: NSURL, completion: (response: AnyObject?) -> Void)
+    func get(url: NSURL, success: SuccessHandler, failure: FailureHandler)
     
-    func get(url: NSURL, params: [String: AnyObject]?, completion: (response: AnyObject?) -> Void)
+    func get(url: NSURL, params: [String: AnyObject]?, success: SuccessHandler, failure: FailureHandler)
 
-    func post(url: NSURL, body: [String: AnyObject]?, completion: (response: AnyObject?) -> Void)
+    func post(url: NSURL, body: [String: AnyObject]?, success: SuccessHandler, failure: FailureHandler)
     
 }

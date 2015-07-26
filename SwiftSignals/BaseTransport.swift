@@ -12,7 +12,7 @@ public class BaseTransport: Transport {
 
     public let connection: Connection
     public let delegate: TransportDelegate
-    public let networking: Networking
+    public var networking: Networking
     
     required public init(connection: Connection, delegate: TransportDelegate) {
         self.connection = connection
@@ -27,10 +27,16 @@ public class BaseTransport: Transport {
     }
     
     public func negotiate(completion: (connectionOptions: ConnectionOptions) -> Void ) {
-        networking.get(negotiateUrl()) { (response) in
-            let options = ConnectionOptions(data: response as! [String: AnyObject])
-            completion(connectionOptions: options)
-        }
+        networking.get(
+            negotiateUrl(),
+            success: { (response) in
+                let options = ConnectionOptions(data: response as! [String: AnyObject])
+                completion(connectionOptions: options)
+            },
+            failure: { (error) in
+                self.delegate.transportError(error!)
+            }
+        )
     }
     
     public func connect() {
@@ -38,16 +44,29 @@ public class BaseTransport: Transport {
     }
     
     public func start() {
-        networking.get(startUrl()) { (response) in
-            self.delegate.transportDidConnect()
-        }
+        networking.get(
+            startUrl(),
+            success: { (response) in
+                self.delegate.transportDidConnect()
+            },
+            failure: { (error) in
+                self.delegate.transportError(error!)
+            }
+        )
     }
     
     public func invoke(method: String, args: [AnyObject]) {
         let event = Event(hubName: "dpbhub", methodName: method, arguments: args, index: 0)
-        networking.post(sendUrl(), body: event.toData()) { (response) -> Void in
-            print("Invoke Method Response!!! \(response)")
-        }
+        networking.post(
+            sendUrl(),
+            body: event.toData(),
+            success: { (response) -> Void in
+                print("Invoke Method Response!!! \(response)")
+            },
+            failure: { (error) in
+                self.delegate.transportError(error!)
+            }
+        )
     }
 
     func negotiateUrl() -> NSURL {

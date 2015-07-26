@@ -17,9 +17,15 @@ class LongPollingTransport: BaseTransport {
     }
     
     override func connect() {
-        networking.get(connectUrl()) { (response) in
-            self.start()
-        }
+        networking.get(
+            connectUrl(),
+            success: { (response) in
+                self.start()
+            },
+            failure: { (error) in
+                self.delegate.transportError(error!)
+            }
+        )
     }
     
 }

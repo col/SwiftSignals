@@ -31,6 +31,9 @@
 		EF9593401B63F8DA0091B569 /* TransportDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95933F1B63F8DA0091B569 /* TransportDelegate.swift */; };
 		EF9593421B6402FF0091B569 /* MockConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593411B6402FF0091B569 /* MockConnection.swift */; };
 		EF9593441B6403100091B569 /* MockTransportDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593431B6403100091B569 /* MockTransportDelegate.swift */; };
+		EF9593461B646AC30091B569 /* MockNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593451B646AC30091B569 /* MockNetworking.swift */; };
+		EF9593481B64C0FC0091B569 /* NSURL+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593471B64C0FC0091B569 /* NSURL+SwiftSignals.swift */; };
+		EF95934A1B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */; };
 		EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */; };
 		EFBDB6711B614A110003940E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6701B614A110003940E /* Event.swift */; };
 		EFBDB6731B61D2EC0003940E /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */; };
@@ -79,6 +82,9 @@
 		EF95933F1B63F8DA0091B569 /* TransportDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportDelegate.swift; sourceTree = "<group>"; };
 		EF9593411B6402FF0091B569 /* MockConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConnection.swift; sourceTree = "<group>"; };
 		EF9593431B6403100091B569 /* MockTransportDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTransportDelegate.swift; sourceTree = "<group>"; };
+		EF9593451B646AC30091B569 /* MockNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworking.swift; sourceTree = "<group>"; };
+		EF9593471B64C0FC0091B569 /* NSURL+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftSignals.swift"; sourceTree = "<group>"; };
+		EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftSignalsSpec.swift"; sourceTree = "<group>"; };
 		EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+SwiftSignals.swift"; sourceTree = "<group>"; };
 		EFBDB6701B614A110003940E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				EF9593341B63A8330091B569 /* MockTransport.swift */,
 				EF9593411B6402FF0091B569 /* MockConnection.swift */,
 				EF9593431B6403100091B569 /* MockTransportDelegate.swift */,
+				EF9593451B646AC30091B569 /* MockNetworking.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */,
+				EF9593471B64C0FC0091B569 /* NSURL+SwiftSignals.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				EF51060E1B60817F003CBDA0 /* NSURLComponentsTests.swift */,
+				EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +444,7 @@
 				EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */,
 				EF51060D1B60739D003CBDA0 /* SeverSentEventsTransport.swift in Sources */,
 				EF54D12D1B5D50B40017C449 /* Networking.swift in Sources */,
+				EF9593481B64C0FC0091B569 /* NSURL+SwiftSignals.swift in Sources */,
 				EF54D12F1B5D50E60017C449 /* NSNetworking.swift in Sources */,
 				EFBDB6781B637DC90003940E /* AutoTransport.swift in Sources */,
 				EFBDB6711B614A110003940E /* Event.swift in Sources */,
@@ -455,12 +465,14 @@
 				EF9593421B6402FF0091B569 /* MockConnection.swift in Sources */,
 				EF95933A1B63F6150091B569 /* WebSocketTransportSpec.swift in Sources */,
 				EF9593441B6403100091B569 /* MockTransportDelegate.swift in Sources */,
+				EF95934A1B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift in Sources */,
 				EF5106111B6135F4003CBDA0 /* ConnectionSpec.swift in Sources */,
 				EF9593351B63A8330091B569 /* MockTransport.swift in Sources */,
 				EF95933E1B63F6310091B569 /* AutoTransportSpec.swift in Sources */,
 				EF95933C1B63F6250091B569 /* LongPollingTransportSpec.swift in Sources */,
 				EF9593331B63A8170091B569 /* MockConnectionDelegate.swift in Sources */,
 				EF9593381B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift in Sources */,
+				EF9593461B646AC30091B569 /* MockNetworking.swift in Sources */,
 				EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
