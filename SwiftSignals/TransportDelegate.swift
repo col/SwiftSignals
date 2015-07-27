@@ -12,4 +12,6 @@ public protocol TransportDelegate {
     
     func transportError(error: NSError)
     
+    func transportDidReceiveEvent(event: Event)
+    
 }

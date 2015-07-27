@@ -42,4 +42,8 @@ public class Connection: NSObject, NSURLSessionDelegate, TransportDelegate {
         delegate?.connectionError(self, error: error)
     }
     
+    public func transportDidReceiveEvent(event: Event) {
+        delegate?.connectionDidReceiveEvent(self, event: event)
+    }
+    
 }

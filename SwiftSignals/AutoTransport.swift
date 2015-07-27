@@ -52,4 +52,8 @@ class AutoTransport: BaseTransport, TransportDelegate {
         }
     }
     
+    func transportDidReceiveEvent(event: Event) {
+        delegate.transportDidReceiveEvent(event)
+    }
+    
 }

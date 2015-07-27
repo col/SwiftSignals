@@ -34,6 +34,8 @@
 		EF9593461B646AC30091B569 /* MockNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593451B646AC30091B569 /* MockNetworking.swift */; };
 		EF9593481B64C0FC0091B569 /* NSURL+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593471B64C0FC0091B569 /* NSURL+SwiftSignals.swift */; };
 		EF95934A1B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */; };
+		EF95934C1B65B7EF0091B569 /* BaseTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */; };
+		EF95934E1B6695EE0091B569 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95934D1B6695EE0091B569 /* TestHelpers.swift */; };
 		EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */; };
 		EFBDB6711B614A110003940E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6701B614A110003940E /* Event.swift */; };
 		EFBDB6731B61D2EC0003940E /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */; };
@@ -85,6 +87,8 @@
 		EF9593451B646AC30091B569 /* MockNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworking.swift; sourceTree = "<group>"; };
 		EF9593471B64C0FC0091B569 /* NSURL+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftSignals.swift"; sourceTree = "<group>"; };
 		EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftSignalsSpec.swift"; sourceTree = "<group>"; };
+		EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransportSpec.swift; sourceTree = "<group>"; };
+		EF95934D1B6695EE0091B569 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+SwiftSignals.swift"; sourceTree = "<group>"; };
 		EFBDB6701B614A110003940E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				EF9593411B6402FF0091B569 /* MockConnection.swift */,
 				EF9593431B6403100091B569 /* MockTransportDelegate.swift */,
 				EF9593451B646AC30091B569 /* MockNetworking.swift */,
+				EF95934D1B6695EE0091B569 /* TestHelpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				EF9593391B63F6150091B569 /* WebSocketTransportSpec.swift */,
 				EF95933B1B63F6250091B569 /* LongPollingTransportSpec.swift */,
 				EF95933D1B63F6310091B569 /* AutoTransportSpec.swift */,
+				EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */,
 			);
 			name = Transports;
 			sourceTree = "<group>";
@@ -430,7 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftSignals/Pods-SwiftSignals-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -471,7 +477,9 @@
 				EF95933E1B63F6310091B569 /* AutoTransportSpec.swift in Sources */,
 				EF95933C1B63F6250091B569 /* LongPollingTransportSpec.swift in Sources */,
 				EF9593331B63A8170091B569 /* MockConnectionDelegate.swift in Sources */,
+				EF95934E1B6695EE0091B569 /* TestHelpers.swift in Sources */,
 				EF9593381B63F5FF0091B569 /* ServerSentEventsTransportSpec.swift in Sources */,
+				EF95934C1B65B7EF0091B569 /* BaseTransportSpec.swift in Sources */,
 				EF9593461B646AC30091B569 /* MockNetworking.swift in Sources */,
 				EF51060F1B60817F003CBDA0 /* NSURLComponentsTests.swift in Sources */,
 			);

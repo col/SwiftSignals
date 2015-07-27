@@ -8,7 +8,8 @@
 
 import Quick
 import Nimble
-import SwiftSignals
+@testable import IKEventSource
+@testable import SwiftSignals
 
 class ServerSentEventsTransportSpec: QuickSpec {
     override func spec() {
@@ -28,108 +29,82 @@ class ServerSentEventsTransportSpec: QuickSpec {
                 transport = ServerSentEventsTransport(connection: mockConnection!, delegate: mockDelegate!)
                 transport?.networking = mockNetworking!
             }
-
-            describe("#negotiate") {
-                
-                beforeEach() {
-                    mockNetworking?.setSuccess([String: AnyObject]())
-                }
-                
-                it("should send a GET request to /signalr/negotiate") {
-                    transport?.negotiate() { (connectionOptions) in
-                        print("negotiated")
-                    }
-                    expect(mockNetworking?.getWasCalled).to(beTruthy())
-                    
-                    let url = mockNetworking?.getCalledWithURL
-                    expect(url!.path).to(equal("/signalr/negotiate"))
-                }
-                
-                it("should include the correct query params") {
-                    transport?.negotiate() { (connectionOptions) in }
-
-                    let url = mockNetworking!.getCalledWithURL!
-                    let queryParams = url.getQueryParams()
-                    expect(queryParams.count).to(equal(2))
-                    expect(queryParams["clientProtocol"]).to(equal("1.5"))
-                    expect(queryParams["connectionData"]).to(equal("%5B%7B%22name%22%3A%22dpbhub%22%7D%5D"))
-                }
-                
-                describe("when the request is successful") {
-                    
-                    let response = [
-                        "ConnectionId": "mock connection id",
-                        "ConnectionToken": "mock connection token",
-                        "ProtocolVersion": "1.2.3",
-                        "ConnectionTimeout": 5,
-                        "DisconnectTimeout": 10,
-                        "KeepAliveTimeout": 15,
-                        "LongPollDelay": 20,
-                        "TransportConnectTimeout": 25,
-                        "TryWebSockets": false
-                    ]
-                    
-                    beforeEach() {
-                        mockNetworking?.setSuccess(response)
-                    }
-                    
-                    it("should parse the response into ConnectionOptions") {
-                        var result: ConnectionOptions?
-                        transport?.negotiate() { (connectionOptions) in
-                            result = connectionOptions
-                        }
-                        expect(result?.connectionId).to(equal(response["ConnectionId"]))
-                        expect(result?.connectionToken).to(equal(response["ConnectionToken"]))
-                        expect(result?.protocolVersion).to(equal(response["ProtocolVersion"]))
-                        expect(result?.connectionTimeout).to(equal(response["ConnectionTimeout"]))
-                        expect(result?.disconnectTimeout).to(equal(response["DisconnectTimeout"]))
-                        expect(result?.keepAliveTimeout).to(equal(response["KeepAliveTimeout"]))
-                        expect(result?.longPollDelay).to(equal(response["LongPollDelay"]))
-                        expect(result?.transportConnectTimeout).to(equal(response["TransportConnectTimeout"]))
-                        expect(result?.tryWebSockets).to(equal(response["TryWebSockets"]))
-                    }
-                    
-                }
-                
-                describe("when the request fails") {
-                    
-                    let error = NSError(domain: "", code: 123, userInfo: nil)
-                    
-                    beforeEach() {
-                        mockNetworking?.setFailure(error)
-                    }
-                    
-                    it("should call the transportError delegate method") {
-                        transport?.negotiate() { (connectionOptions) in }
-                        expect(mockDelegate!.transportErrorWasCalled).to(beTruthy())
-                    }
-                    
-                }
-                
-            }
             
             describe("#connect") {
                 
-                it("should ...") {
-                    
+                let options = ConnectionOptions()
+                
+                beforeEach() {
+                    options.connectionToken = "negotiated token"
+                    mockConnection?.options = options
                 }
+                
+                it("should create an event source with path /signalr/connect") {
+                    transport?.connect()
+                    
+                    expect(transport?.eventSource).toNot(beNil())
+                    expect(transport?.eventSource?.url.path).to(equal("/signalr/connect"))
+                    // Not sure how to test the callbacks are setup correctly...
+                }
+                
             }
             
-            describe("#start") {
+            describe("#onError") {
                 
-                it("should ...") {
+                it("should call the transportError delegate method with the error") {
+                    let error = NSError(domain: "", code: 123, userInfo: nil)
+                    transport?.onError(error)
                     
+                    expect(mockDelegate?.transportErrorWasCalled).to(beTruthy())
+                    expect(mockDelegate?.transportErrorWasCalledWithError).to(beIdenticalTo(error))
                 }
                 
             }
             
-            describe("#invoke") {
+            describe("#onMessage") {
                 
-                it("should ...") {
+                let options = ConnectionOptions()
+                
+                beforeEach() {
+                    options.connectionToken = "negotiated token"
+                    mockConnection?.options = options
+                }
+                
+                describe("when the 'initialized' message is receiver") {
+                    
+                    it("should send a start request") {
+                        transport?.onMessage(nil, event: nil, data: "initialized")
+                        
+                        expect(mockNetworking?.getWasCalled).to(beTruthy())
+                        expect(mockNetworking?.getCalledWithURL?.path).to(equal("/signalr/start"))
+                    }
                     
                 }
                 
-            }
+                describe("when an event is received") {
+                    
+                    let messageDataObject = [
+                        "M": [
+                            [ "H" : "testhub", "M" : "tick", "A" : [] ]
+                        ]
+                    ]
+                    
+                    it("should call the transportShouldReceiveEvent with the correct event properties") {
+                        let messageData = TestHelpers.jsonEncodeObject(messageDataObject)
+                        transport?.onMessage(nil, event: "message", data: messageData)
+                        
+                        expect(mockDelegate?.transportDidReceiveEventWasCalled).to(beTruthy())
+
+                        let receivedEvent = mockDelegate?.transportDidReceiveEventCalledWithEvent
+                        expect(receivedEvent).toNot(beNil())
+                        expect(receivedEvent?.hubName).to(equal("testhub"))
+                        expect(receivedEvent?.methodName).to(equal("tick"))
+                        expect(receivedEvent?.arguments).to(beEmpty())
+                    }
+                    
+                }
+                
+            }        
 
         }
     

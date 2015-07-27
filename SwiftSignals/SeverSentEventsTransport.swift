@@ -11,7 +11,7 @@ import IKEventSource
 
 public class ServerSentEventsTransport: BaseTransport {
     
-    var eventSource: EventSource?
+    public var eventSource: EventSource?
     
     override public var name: String {
         get {
@@ -22,30 +22,37 @@ public class ServerSentEventsTransport: BaseTransport {
     override public func connect() {
         print("Connecting to: \(connectUrl())")
         eventSource = EventSource(url: connectUrl().absoluteString, headers: [String: String]())
-        
-        eventSource?.onOpen {
-            print("onOpen")
-        }
-        
-        eventSource?.onError { (error) in
-            print("onError \(error)")
-            self.connection.delegate?.connectionError(self.connection, error: error)
-        }
-        
-        eventSource?.onMessage { (id, event, data) in
-            print("onMessage id: \(id) event: \(event) data: \(data)")
-            
-            if data == "initialized" {
-                self.start()
-                return
-            }
-            
-            let events = self.parseResponse(data)
-            print("Received Events = \(events)")
-        }
-        
+        eventSource?.onOpen(self.onOpen)
+        eventSource?.onError(self.onError)
+        eventSource?.onMessage(self.onMessage)
     }
     
+    func onOpen() {
+        print("onOpen")
+    }
+    
+    func onError(error: NSError?) {
+        print("onError \(error)")
+        if let error = error {
+            self.delegate.transportError(error)
+        }
+    }
+    
+    func onMessage(id: String?, event: String?, data: String?) {
+        print("onMessage id: \(id) event: \(event) data: \(data)")
+        
+        if data == "initialized" {
+            self.start()
+            return
+        }
+        
+        let events = self.parseResponse(data)
+        print("Received Events = \(events)")
+        events.map { (event) in
+            delegate.transportDidReceiveEvent(event)
+        }
+    }
+
     private func parseResponse(data: String?) -> [Event] {
         guard let data = data?.dataUsingEncoding(NSUTF8StringEncoding) else {
             return [Event]()

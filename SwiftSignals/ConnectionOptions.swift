@@ -20,6 +20,10 @@ public class ConnectionOptions: NSObject {
     public var tryWebSockets: Bool?
     public var protocolVersion: String?
     
+    override public init() {
+        super.init()
+    }
+    
     public init(data: [String: AnyObject?]) {
         super.init()
         self.connectionId = data["ConnectionId"] as? String
