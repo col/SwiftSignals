@@ -20,6 +20,6 @@ public protocol Transport {
     
     func start()
     
-    func invoke(method: String, args: [AnyObject])
+    func invoke(method: String, args: [AnyObject]?)
     
 }

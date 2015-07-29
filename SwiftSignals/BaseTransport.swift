@@ -55,7 +55,7 @@ public class BaseTransport: Transport {
         )
     }
     
-    public func invoke(method: String, args: [AnyObject]) {
+    public func invoke(method: String, args: [AnyObject]?) {
         let event = Event(hubName: "dpbhub", methodName: method, arguments: args, index: 0)
         networking.post(
             sendUrl(),

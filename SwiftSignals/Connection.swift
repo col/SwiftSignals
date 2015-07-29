@@ -30,20 +30,26 @@ public class Connection: NSObject, NSURLSessionDelegate, TransportDelegate {
         }
     }
     
-    public func invoke(method: String, args: [AnyObject]) {
+    public func invoke(method: String, args: [AnyObject]?) {
         transport?.invoke(method, args: args)
     }
     
     public func transportDidConnect() {
-        delegate?.connectionDidOpen(self)
+        dispatch_async(dispatch_get_main_queue()) {
+            delegate?.connectionDidOpen(self)
+        }
     }
     
     public func transportError(error: NSError) {
-        delegate?.connectionError(self, error: error)
+        dispatch_async(dispatch_get_main_queue()) {
+            delegate?.connectionError(self, error: error)
+        }
     }
     
     public func transportDidReceiveEvent(event: Event) {
-        delegate?.connectionDidReceiveEvent(self, event: event)
+        dispatch_async(dispatch_get_main_queue()) {
+            delegate?.connectionDidReceiveEvent(self, event: event)
+        }
     }
     
 }

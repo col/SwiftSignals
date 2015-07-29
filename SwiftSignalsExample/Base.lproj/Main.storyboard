@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftSignalsExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftSignals Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0w-bX-Raz">
+                                <rect key="frame" x="20" y="28" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Liv-gN-CpW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izy-Ky-eAQ">
+                                <rect key="frame" x="250" y="80" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0QO-Tf-foE"/>
+                                    <constraint firstAttribute="width" constant="100" id="pEC-o7-chL"/>
+                                </constraints>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUl-ga-InV"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFM-6m-f0t">
+                                <rect key="frame" x="20" y="276" width="560" height="304"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="304" id="1km-d4-i9J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Console" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pg-O9-qha">
+                                <rect key="frame" x="20" y="247" width="63" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="DVF-q3-a8k"/>
+                                    <constraint firstAttribute="height" constant="21" id="HY0-uT-qQf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2E-MP-Meg">
+                                <rect key="frame" x="250" y="80" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6hg-y3-iXr"/>
+                                    <constraint firstAttribute="width" constant="100" id="Id4-ZJ-1Eu"/>
+                                    <constraint firstAttribute="height" constant="44" id="SOR-z4-hS3"/>
+                                </constraints>
+                                <state key="normal" title="Echo"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SOR-z4-hS3"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="6hg-y3-iXr"/>
+                                        <exclude reference="Id4-ZJ-1Eu"/>
+                                        <include reference="SOR-z4-hS3"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="echoClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="df0-cf-qIg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Pg-O9-qha" firstAttribute="leading" secondItem="fFM-6m-f0t" secondAttribute="leading" id="4BA-jd-ILP"/>
+                            <constraint firstItem="i2E-MP-Meg" firstAttribute="leading" secondItem="Izy-Ky-eAQ" secondAttribute="leading" id="7KF-sC-5tF"/>
+                            <constraint firstItem="h0w-bX-Raz" firstAttribute="trailing" secondItem="fFM-6m-f0t" secondAttribute="trailing" id="7YX-dQ-xb1"/>
+                            <constraint firstAttribute="bottom" secondItem="fFM-6m-f0t" secondAttribute="bottom" constant="20" symbolic="YES" id="C8V-23-IW4"/>
+                            <constraint firstItem="i2E-MP-Meg" firstAttribute="trailing" secondItem="Izy-Ky-eAQ" secondAttribute="trailing" id="Gan-Gh-mdv"/>
+                            <constraint firstItem="h0w-bX-Raz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HiS-7i-Qmd"/>
+                            <constraint firstItem="fFM-6m-f0t" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="amJ-O1-vgz"/>
+                            <constraint firstItem="Izy-Ky-eAQ" firstAttribute="top" secondItem="h0w-bX-Raz" secondAttribute="bottom" constant="8" symbolic="YES" id="cdz-No-izK"/>
+                            <constraint firstItem="fFM-6m-f0t" firstAttribute="top" secondItem="9Pg-O9-qha" secondAttribute="bottom" constant="8" symbolic="YES" id="ctE-AM-UGI"/>
+                            <constraint firstItem="h0w-bX-Raz" firstAttribute="centerX" secondItem="Izy-Ky-eAQ" secondAttribute="centerX" id="dhd-NN-g2i"/>
+                            <constraint firstItem="i2E-MP-Meg" firstAttribute="top" secondItem="Izy-Ky-eAQ" secondAttribute="bottom" constant="8" symbolic="YES" id="lHw-6m-KNc"/>
+                            <constraint firstItem="h0w-bX-Raz" firstAttribute="leading" secondItem="9Pg-O9-qha" secondAttribute="leading" id="uBP-bF-QIj"/>
+                            <constraint firstItem="h0w-bX-Raz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="yP0-W9-HfT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="i2E-MP-Meg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7KF-sC-5tF"/>
+                                <exclude reference="Gan-Gh-mdv"/>
+                                <exclude reference="lHw-6m-KNc"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="i2E-MP-Meg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7KF-sC-5tF"/>
+                                <include reference="Gan-Gh-mdv"/>
+                                <include reference="lHw-6m-KNc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="console" destination="fFM-6m-f0t" id="TC2-3V-ZeG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="235"/>
+        </scene>
+    </scenes>
+</document>

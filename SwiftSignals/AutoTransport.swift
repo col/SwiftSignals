@@ -33,7 +33,7 @@ class AutoTransport: BaseTransport, TransportDelegate {
         self.transport?.connect()
     }
     
-    override func invoke(method: String, args: [AnyObject]) {
+    override func invoke(method: String, args: [AnyObject]?) {
         self.transport?.invoke(method, args: args)
     }
     

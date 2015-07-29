@@ -12,10 +12,10 @@ public class Event {
     
     public let hubName: String
     public let methodName: String
-    public let arguments: [AnyObject]
+    public let arguments: [AnyObject]?
     public let index: Int?
     
-    init(hubName: String, methodName: String, arguments: [AnyObject], index: Int?) {
+    init(hubName: String, methodName: String, arguments: [AnyObject]?, index: Int?) {
         self.hubName = hubName
         self.methodName = methodName
         self.arguments = arguments
@@ -33,12 +33,16 @@ public class Event {
     }
     
     public func toData() -> [String: AnyObject] {
-        return [
-            "H" : hubName,
-            "M" : methodName,
-            "A" : arguments,
-            "I" : index!
-        ]
+        var data = [String: AnyObject]()
+        data["H"] = hubName
+        data["M"] = methodName
+        if let args = arguments {
+            data["A"] = args
+        }
+        if let index = index {
+            data["I"] = index
+        }
+        return data
     }
     
 }

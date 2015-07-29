@@ -36,6 +36,13 @@
 		EF95934A1B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */; };
 		EF95934C1B65B7EF0091B569 /* BaseTransportSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */; };
 		EF95934E1B6695EE0091B569 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95934D1B6695EE0091B569 /* TestHelpers.swift */; };
+		EF9593571B6935080091B569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593561B6935080091B569 /* AppDelegate.swift */; };
+		EF9593591B6935080091B569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9593581B6935080091B569 /* ViewController.swift */; };
+		EF95935C1B6935080091B569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF95935A1B6935080091B569 /* Main.storyboard */; };
+		EF95935E1B6935080091B569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF95935D1B6935080091B569 /* Assets.xcassets */; };
+		EF9593611B6935080091B569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF95935F1B6935080091B569 /* LaunchScreen.storyboard */; };
+		EF9593661B6937E60091B569 /* SwiftSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF54D10E1B5D29790017C449 /* SwiftSignals.framework */; };
+		EF9593671B6937E60091B569 /* SwiftSignals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF54D10E1B5D29790017C449 /* SwiftSignals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFA0AB501B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */; };
 		EFBDB6711B614A110003940E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6701B614A110003940E /* Event.swift */; };
 		EFBDB6731B61D2EC0003940E /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */; };
@@ -51,7 +58,28 @@
 			remoteGlobalIDString = EF54D10D1B5D29790017C449;
 			remoteInfo = SwiftSignals;
 		};
+		EF9593681B6937E60091B569 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF54D1051B5D29790017C449 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF54D10D1B5D29790017C449;
+			remoteInfo = SwiftSignals;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EF95936A1B6937E70091B569 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EF9593671B6937E60091B569 /* SwiftSignals.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		56F31A295892A096983CF0C9 /* Pods_SwiftSignalsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSignalsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +117,13 @@
 		EF9593491B64C1510091B569 /* NSURL+SwiftSignalsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+SwiftSignalsSpec.swift"; sourceTree = "<group>"; };
 		EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransportSpec.swift; sourceTree = "<group>"; };
 		EF95934D1B6695EE0091B569 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		EF9593541B6935080091B569 /* SwiftSignalsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSignalsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9593561B6935080091B569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF9593581B6935080091B569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF95935B1B6935080091B569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF95935D1B6935080091B569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF9593601B6935080091B569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF9593621B6935080091B569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA0AB4F1B5FDAE400479E59 /* NSURLComponents+SwiftSignals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+SwiftSignals.swift"; sourceTree = "<group>"; };
 		EFBDB6701B614A110003940E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EFBDB6721B61D2EC0003940E /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +151,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF9593511B6935080091B569 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9593661B6937E60091B569 /* SwiftSignals.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -134,6 +177,7 @@
 			children = (
 				EF54D1101B5D29790017C449 /* SwiftSignals */,
 				EF54D11C1B5D29790017C449 /* SwiftSignalsTests */,
+				EF9593551B6935080091B569 /* SwiftSignalsExample */,
 				EF54D10F1B5D29790017C449 /* Products */,
 				F48B4B9728B5D14CE93D5787 /* Pods */,
 				03681DDB894F0607EDD60436 /* Frameworks */,
@@ -145,6 +189,7 @@
 			children = (
 				EF54D10E1B5D29790017C449 /* SwiftSignals.framework */,
 				EF54D1181B5D29790017C449 /* SwiftSignalsTests.xctest */,
+				EF9593541B6935080091B569 /* SwiftSignalsExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +268,19 @@
 				EF95934B1B65B7EF0091B569 /* BaseTransportSpec.swift */,
 			);
 			name = Transports;
+			sourceTree = "<group>";
+		};
+		EF9593551B6935080091B569 /* SwiftSignalsExample */ = {
+			isa = PBXGroup;
+			children = (
+				EF9593561B6935080091B569 /* AppDelegate.swift */,
+				EF9593581B6935080091B569 /* ViewController.swift */,
+				EF95935A1B6935080091B569 /* Main.storyboard */,
+				EF95935D1B6935080091B569 /* Assets.xcassets */,
+				EF95935F1B6935080091B569 /* LaunchScreen.storyboard */,
+				EF9593621B6935080091B569 /* Info.plist */,
+			);
+			path = SwiftSignalsExample;
 			sourceTree = "<group>";
 		};
 		EFA0AB4E1B5FDAC400479E59 /* Extensions */ = {
@@ -309,6 +367,25 @@
 			productReference = EF54D1181B5D29790017C449 /* SwiftSignalsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EF9593531B6935080091B569 /* SwiftSignalsExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF9593631B6935080091B569 /* Build configuration list for PBXNativeTarget "SwiftSignalsExample" */;
+			buildPhases = (
+				EF9593501B6935080091B569 /* Sources */,
+				EF9593511B6935080091B569 /* Frameworks */,
+				EF9593521B6935080091B569 /* Resources */,
+				EF95936A1B6937E70091B569 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF9593691B6937E60091B569 /* PBXTargetDependency */,
+			);
+			name = SwiftSignalsExample;
+			productName = SwiftSignalsExample;
+			productReference = EF9593541B6935080091B569 /* SwiftSignalsExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -326,6 +403,9 @@
 					EF54D1171B5D29790017C449 = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					EF9593531B6935080091B569 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = EF54D1081B5D29790017C449 /* Build configuration list for PBXProject "SwiftSignals" */;
@@ -334,6 +414,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = EF54D1041B5D29790017C449;
 			productRefGroup = EF54D10F1B5D29790017C449 /* Products */;
@@ -342,6 +423,7 @@
 			targets = (
 				EF54D10D1B5D29790017C449 /* SwiftSignals */,
 				EF54D1171B5D29790017C449 /* SwiftSignalsTests */,
+				EF9593531B6935080091B569 /* SwiftSignalsExample */,
 			);
 		};
 /* End PBXProject section */
@@ -358,6 +440,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF9593521B6935080091B569 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9593611B6935080091B569 /* LaunchScreen.storyboard in Resources */,
+				EF95935E1B6935080091B569 /* Assets.xcassets in Resources */,
+				EF95935C1B6935080091B569 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +577,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF9593501B6935080091B569 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF9593591B6935080091B569 /* ViewController.swift in Sources */,
+				EF9593571B6935080091B569 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -493,7 +594,31 @@
 			target = EF54D10D1B5D29790017C449 /* SwiftSignals */;
 			targetProxy = EF54D11A1B5D29790017C449 /* PBXContainerItemProxy */;
 		};
+		EF9593691B6937E60091B569 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF54D10D1B5D29790017C449 /* SwiftSignals */;
+			targetProxy = EF9593681B6937E60091B569 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF95935A1B6935080091B569 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF95935B1B6935080091B569 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF95935F1B6935080091B569 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF9593601B6935080091B569 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF54D1201B5D29790017C449 /* Debug */ = {
@@ -644,6 +769,30 @@
 			};
 			name = Release;
 		};
+		EF9593641B6935080091B569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SwiftSignalsExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colharris.SwiftSignalsExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF9593651B6935080091B569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SwiftSignalsExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colharris.SwiftSignalsExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -673,6 +822,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EF9593631B6935080091B569 /* Build configuration list for PBXNativeTarget "SwiftSignalsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF9593641B6935080091B569 /* Debug */,
+				EF9593651B6935080091B569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
