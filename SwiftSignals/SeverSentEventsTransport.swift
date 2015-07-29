@@ -46,26 +46,23 @@ public class ServerSentEventsTransport: BaseTransport {
             return
         }
         
-        let events = self.parseResponse(data)
-        print("Received Events = \(events)")
-        events.map { (event) in
-            delegate.transportDidReceiveEvent(event)
+        do {
+            let events = try self.parseResponse(data)
+            events.map { (event) in
+                delegate.transportDidReceiveEvent(event)
+            }
+        } catch {
+            delegate.transportError(error as NSError)
         }
     }
 
-    private func parseResponse(data: String?) -> [Event] {
+    private func parseResponse(data: String?) throws -> [Event] {
         guard let data = data?.dataUsingEncoding(NSUTF8StringEncoding) else {
             return [Event]()
         }
         
-        var response: [String: AnyObject]?
-        do {
-            response = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [String : AnyObject]
-        } catch {
-            print("Error parsing response! \(error)")
-        }
-        
-        if let response = response, messages = response["M"] as? [[String: AnyObject]] {
+        let response = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! [String : AnyObject]
+        if let messages = response["M"] as? [[String: AnyObject]] {
             return messages.map { (message) in
                 return Event.eventWithData(message)!
             }

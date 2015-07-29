@@ -21,11 +21,6 @@ class ViewController: UIViewController, ConnectionDelegate {
         connection?.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func connectClicked() {
         self.appendToConsole("Connecting...")
         connection?.start()
