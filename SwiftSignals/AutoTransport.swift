@@ -33,6 +33,10 @@ class AutoTransport: BaseTransport, TransportDelegate {
         self.transport?.connect()
     }
     
+    override func disconnect() {
+        self.transport?.disconnect()
+    }
+    
     override func invoke(method: String, args: [AnyObject]?) {
         self.transport?.invoke(method, args: args)
     }
@@ -41,6 +45,10 @@ class AutoTransport: BaseTransport, TransportDelegate {
         delegate.transportDidConnect()
     }
 
+    func transportDidDisconnect() {
+        delegate.transportDidDisconnect()
+    }
+    
     func transportError(error: NSError) {
         print("transport error: \(error)")
         if transport?.name == "webSockets" {
@@ -48,7 +56,7 @@ class AutoTransport: BaseTransport, TransportDelegate {
             transport = ServerSentEventsTransport(connection: connection, delegate: self)
             transport?.connect()
         } else {
-            connection.delegate?.connectionError(connection, error: error)
+            delegate.transportError(error)
         }
     }
     

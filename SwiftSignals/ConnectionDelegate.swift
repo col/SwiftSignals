@@ -20,4 +20,6 @@ public protocol ConnectionDelegate {
     
     func connectionDidReceiveEvent(connection: Connection, event: Event)
     
+    func connectionStateDidChange(connection: Connection, fromState: ConnectionState, toState:ConnectionState)
+    
 }

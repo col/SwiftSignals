@@ -43,6 +43,10 @@ public class BaseTransport: Transport {
         // Abstract method. Should be implemented by subclass.
     }
     
+    public func disconnect() {
+        // Abstract method. Should be implemented by subclass.
+    }
+    
     public func start() {
         networking.get(
             startUrl(),
@@ -50,6 +54,18 @@ public class BaseTransport: Transport {
                 self.delegate.transportDidConnect()
             },
             failure: { (error) in
+                self.delegate.transportError(error!)
+            }
+        )
+    }
+
+    public func abort() {
+        networking.get(
+            abortUrl(),
+            success: { (response) in
+                self.delegate.transportDidDisconnect()
+            },
+            failure: { (error) in                
                 self.delegate.transportError(error!)
             }
         )
@@ -80,10 +96,16 @@ public class BaseTransport: Transport {
     func startUrl() -> NSURL {
         return NSURL(string: "\(connection.baseUrl.absoluteString)/signalr/start?\(connectQueryString())")!
     }
+
+    func abortUrl() -> NSURL {
+        return NSURL(string: "\(connection.baseUrl.absoluteString)/signalr/abort?\(connectQueryString())")!
+    }
     
     func sendUrl() -> NSURL {
         return NSURL(string: "\(connection.baseUrl.absoluteString)/signalr/send?\(sendQueryString())")!
     }
+    
+    // TODO: All these param methods need to be cleaned up.
     
     func connectParams() -> [String : AnyObject] {
         return [

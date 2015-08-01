@@ -1,7 +1,7 @@
 PODS:
   - IKEventSource (1.0.1)
-  - Nimble (2.0.0-rc.1)
-  - Quick (0.5.0)
+  - Nimble (2.0.0-rc.2)
+  - Quick (0.5.1)
   - Starscream (0.9.4)
 
 DEPENDENCIES:
@@ -26,13 +26,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   IKEventSource:
-    :commit: 1ebc270487105f984f0b5e4186f8cfd1bab35840
+    :commit: dd388c361f01f3583198c6a672ea7b14c7aaa944
     :git: https://github.com/col/EventSource
   Nimble:
-    :commit: a804949542eb2f299b823ffb36936aec54fe0db6
+    :commit: 371f9699af53d50b26186f6700166116fb26c8e6
     :git: https://github.com/Quick/Nimble
   Quick:
-    :commit: e3c802be6c55710b39dba73caab9f234932c2ed7
+    :commit: 210c7a0edcfabbd20e71a258fa2a7c943769a8c1
     :git: https://github.com/Quick/Quick
   Starscream:
     :commit: 36d4426888a106bb7930c802e6a6eab17cc48bb2
@@ -40,8 +40,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   IKEventSource: 5857cbc6ca06be24f12ecbc980a58007e24413b4
-  Nimble: 48a21b576243696b16fff57f4783aadc18fda8bb
-  Quick: 45494d91b43b34346217879491853ee3ca073f5d
+  Nimble: e3cf5e73a491daf21c2bc88783dbfc55ce8b8e02
+  Quick: 7426537a99e75076d6930c5b6da58006e4a9f38a
   Starscream: 0ad8f312bb826c3d7610bd842d66528eee34ad81
 
 COCOAPODS: 0.38.0

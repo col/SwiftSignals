@@ -22,4 +22,5 @@ public protocol Transport {
     
     func invoke(method: String, args: [AnyObject]?)
     
+    func disconnect()
 }

@@ -11,6 +11,7 @@ import SwiftSignals
 
 class ViewController: UIViewController, ConnectionDelegate {
 
+    @IBOutlet var connectionStateLabel: UILabel?
     @IBOutlet var console: UITextView?
     var connection: Connection?
     
@@ -22,13 +23,20 @@ class ViewController: UIViewController, ConnectionDelegate {
     }
 
     @IBAction func connectClicked() {
-        self.appendToConsole("Connecting...")
         connection?.start()
+    }
+
+    @IBAction func disconnectClicked() {
+        connection?.stop()
     }
     
     @IBAction func echoClicked() {
         self.appendToConsole("Sending echo")
         connection?.invoke("Echo", args: nil)
+    }
+
+    @IBAction func clearConsoleClicked() {
+        console!.text = ""
     }
     
     func appendToConsole(string: String) {
@@ -37,25 +45,30 @@ class ViewController: UIViewController, ConnectionDelegate {
     }
     
     func connectionDidOpen(connection: Connection) {
-        self.appendToConsole("connectionDidOpen")
+        self.appendToConsole("ConnectionDidOpen")
     }
     
     func connectionDidClose(connection: Connection) {
-        self.appendToConsole("connectionDidClose")
+        self.appendToConsole("ConnectionDidClose")
     }
     
     func connectionError(connection: Connection, error: NSError?) {
-        self.appendToConsole("connectionError")
+        let error = error ?? NSError(domain: "", code: 0, userInfo: nil)
+        self.appendToConsole("ConnectionError - \(error.localizedDescription)")
     }
     
     func connectionDidReceiveData(connection: Connection, data: AnyObject) {
-        self.appendToConsole("connectionDidReceiveData")
+        self.appendToConsole("ConnectionDidReceiveData")
     }
     
     func connectionDidReceiveEvent(connection: Connection, event: Event) {
-        self.appendToConsole("connectionDidReceiveEvent")
-        self.appendToConsole("Method: \(event.methodName)")
-        self.appendToConsole("Args: \(event.arguments)")
+        let args = event.arguments ?? [AnyObject]()
+        self.appendToConsole("Event Received - Method: \(event.methodName) Args: \(args)")
+    }
+    
+    func connectionStateDidChange(connection: Connection, fromState: ConnectionState, toState:ConnectionState) {
+        self.appendToConsole("\(toState.rawValue)")
+        connectionStateLabel?.text = toState.rawValue
     }
 
 }

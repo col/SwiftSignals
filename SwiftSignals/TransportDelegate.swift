@@ -10,6 +10,8 @@ public protocol TransportDelegate {
     
     func transportDidConnect()
     
+    func transportDidDisconnect()
+    
     func transportError(error: NSError)
     
     func transportDidReceiveEvent(event: Event)

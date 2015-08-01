@@ -27,6 +27,11 @@ public class ServerSentEventsTransport: BaseTransport {
         eventSource?.onMessage(self.onMessage)
     }
     
+    public override func disconnect() {
+        eventSource?.close()
+        super.abort()
+    }
+    
     func onOpen() {
         print("onOpen")
     }

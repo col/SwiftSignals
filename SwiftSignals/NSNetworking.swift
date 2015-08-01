@@ -31,8 +31,12 @@ class NSNetworking: Networking {
                     return
                 }
                 do {
-                    let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                    success(response: jsonObject)
+                    if data?.length > 0 {
+                        let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                        success(response: jsonObject)
+                    } else {
+                        success(response: nil)
+                    }
                 } catch let parseError as NSError {
                     failure(error: parseError)
                 } catch {
